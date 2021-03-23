@@ -32,7 +32,6 @@ body{
 .temperatura-secao{
     display: flex;
     align-items: center;
-    cursor: pointer;
 }
 
 .temperatura-secao span{
