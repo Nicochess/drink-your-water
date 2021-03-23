@@ -44,7 +44,7 @@ window.addEventListener('load', ()=>{
                 })
         })
     } else {
-        h1.textContent = "A aplicação não está funcionando, pois a localização não foi acionada."
+        h1.textContent = "A aplicação não está funcionando"
     }
 
 })
