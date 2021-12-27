@@ -9,16 +9,16 @@ function App() {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState("");
 
-  const search = (e) => {
+  const search = async (e) => {
     if (e.key === "Enter") {
-      fetch(
+      const res = await fetch(
         `${api.base}weather?q=${query}&units=metric&lang=pt_br&appid=${api.key}`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setQuery("");
-          setWeather(result);
-        });
+      );
+      const data = await res.json();
+
+      setQuery("");
+      
+      setWeather(data);
     }
   };
 
@@ -37,6 +37,7 @@ function App() {
       "novembro",
       "dezembro ",
     ];
+
     let days = [
       "Domingo",
       "Segunda",
