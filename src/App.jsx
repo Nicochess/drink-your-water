@@ -6,19 +6,18 @@ function App() {
     base: "https://api.openweathermap.org/data/2.5/",
   };
 
-  console.log(process.env.REACT_APP_KEY)
-
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState("");
 
   const search = (e) => {
     if (e.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&lang=pt_br&appid=${api.key}`)
+      fetch(
+        `${api.base}weather?q=${query}&units=metric&lang=pt_br&appid=${api.key}`
+      )
         .then((res) => res.json())
         .then((result) => {
           setQuery("");
           setWeather(result);
-          console.log(result)
         });
     }
   };
