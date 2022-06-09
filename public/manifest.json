@@ -3,7 +3,7 @@
   "name": "Drink Your Water",
   "author": "Nicolas Magno",
   "version": "1.0.0",
-  "description": "A simple reminder to keep yourself hydrated.",
+  "description": "Um simples lembrete para te manter hidratado durante o dia.",
   "icons": {
     "16": "./icons/water16.png",
     "48": "./icons/water48.png",
@@ -15,5 +15,5 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["alarms", "tabs", "notifications"]
+  "permissions": ["alarms", "notifications"]
 }
