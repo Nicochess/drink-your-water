@@ -15,6 +15,7 @@ function App() {
     setAlarmTimer(time)
     chrome.alarms.clear("drink water")
     createAlarm()
+    
   };
 
   useEffect(() => {
@@ -25,10 +26,10 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Configure Your Water</h1>
+      <h1>Configure seu lembrete</h1>
       <p>Não deixei de beber água, está na hora.</p>
-      <input type="number" onChange={handleChange} value={time} />
-      <button onClick={handleSubmit}>Save</button>
+      <p>Me lembre de beber água a cada <input type="number" onChange={handleChange} value={time} /> minuto(s).</p>
+      <button onClick={handleSubmit}>Salvar</button>
     </div>
   );
 }

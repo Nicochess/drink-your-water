@@ -6,10 +6,8 @@ export const setAlarmTimer = (time) => {
 
 export const createAlarm = () => {
   chrome.storage.local.get(["timer"], ({ timer }) => {
-    
     chrome.alarms.create("drink water", {
-      delayInMinutes: Number(timer),
+      periodInMinutes: Number(timer),
     });
-
   });
 };

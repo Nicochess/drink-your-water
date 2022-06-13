@@ -4,7 +4,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({ timer: 120 });
 
   chrome.alarms.create("drink water", {
-    delayInMinutes: 120,
+    periodInMinutes: 120,
   });
 });
 

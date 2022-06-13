@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "description": "Um simples lembrete para te manter hidratado durante o dia.",
   "icons": {
-    "16": "./icons/water16.png",
+    "16": "./icons/water48.png",
     "48": "./icons/water48.png",
     "128": "./icons/water128.png"
   },
