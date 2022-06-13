@@ -1,28 +1,33 @@
-import { useState } from 'react';
-import './App.css';
+import { useCallback, useEffect, useState } from "react";
+import "./App.css";
 
 /* global chrome */
 
 function App() {
+  const [time, setTime] = useState();
 
-  const [time, setTime] = useState(() => {
-    const getTimer = chrome.storage.local.get("timer") || 120
-    return getTimer
-  })
+  useEffect(() => {
+    chrome.storage.local.get(["timer"], ({ timer }) => {
+      setTime(timer);
+    });
+  }, []);
 
-  const handleChange = (e) => {
-    console.log(e)
-  }
+  const handleChange = useCallback(
+    ({ target }) => {
+      setTime(target.value);
+    },
+    [setTime]
+  );
 
   const handleSubmit = () => {
-
-  }
+    chrome.storage.local.set({ timer: time });
+  };
 
   return (
     <div className="app">
       <h1>Configure Your Water</h1>
       <p>Não deixei de beber água, está na hora.</p>
-      <input type="number" onChange={handleChange} />
+      <input type="number" onChange={handleChange} value={time} />
       <button onClick={handleSubmit}>Save</button>
     </div>
   );
