@@ -1,27 +1,27 @@
 import { useCallback, useEffect, useState } from "react";
 import "./App.css";
+import { createAlarm, setAlarmTimer } from "./utils";
 
 /* global chrome */
 
 function App() {
   const [time, setTime] = useState();
+ 
+  const handleChange = useCallback(({ target }) => {
+    setTime(target.value);
+  },[setTime]);
+
+  const handleSubmit = () => {
+    setAlarmTimer(time)
+    chrome.alarms.clear("drink water")
+    createAlarm()
+  };
 
   useEffect(() => {
     chrome.storage.local.get(["timer"], ({ timer }) => {
-      setTime(timer);
+      setTime(timer); 
     });
   }, []);
-
-  const handleChange = useCallback(
-    ({ target }) => {
-      setTime(target.value);
-    },
-    [setTime]
-  );
-
-  const handleSubmit = () => {
-    chrome.storage.local.set({ timer: time });
-  };
 
   return (
     <div className="app">

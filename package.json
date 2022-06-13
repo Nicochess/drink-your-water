@@ -43,7 +43,6 @@
         "src"
       ],
       "extensions": "js, jsx, css",
-      "delay": 2000,
       "clearBuffer": true
     }
   }
