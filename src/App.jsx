@@ -15,6 +15,7 @@ function App() {
     setAlarmTimer(time)
     chrome.alarms.clear("drink water")
     createAlarm()
+    window.close()
   };
 
   useEffect(() => {
