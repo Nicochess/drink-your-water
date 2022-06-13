@@ -1,11 +1,5 @@
 /* global chrome */
 
-chrome.alarms.create("drink water", {delayInMinutes: 120})
-
-chrome.alarms.onAlarm.addListener(() => {
-    createNotification("popup", clearNotifications)
-})
-
 const createNotification = (id, callback) => {
     callback(id)
 
@@ -24,3 +18,13 @@ const createNotification = (id, callback) => {
 const clearNotifications = (id) => {
     chrome.notifications.clear(id)
 }
+
+chrome.storage.local.get(["timer"], (result) => {
+    console.log(result)
+})
+
+chrome.alarms.create("drink water", { delayInMinutes: 120 })
+
+chrome.alarms.onAlarm.addListener(() => {
+    createNotification("popup", clearNotifications)
+})
