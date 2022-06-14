@@ -41,6 +41,11 @@ button {
   cursor: pointer;
 }
 
+.no-saved {
+  background-color: #D7D7D7;
+  transition: .2s all ease;
+}
+
 input {
   width: 40px;
   height: 25px;

@@ -6,12 +6,15 @@ import { createAlarm, setAlarmTimer } from "./utils";
 
 function App() {
   const [time, setTime] = useState();
+  const [saved, setSaved] = useState(true)
  
   const handleChange = useCallback(({ target }) => {
+    setSaved(false)
     setTime(target.value);
   },[setTime]);
 
   const handleSubmit = () => {
+    setSaved(true)
     setAlarmTimer(time)
     chrome.alarms.clear("drink water")
     createAlarm()
@@ -26,11 +29,11 @@ function App() {
 
   return (
     <div className="app">
-      <div class="item">
+      <div className="item">
         <p>Timer (mins)</p>
         <input type="number" onChange={handleChange} value={time} />
       </div>
-      <button onClick={handleSubmit}>Salvar</button>
+      <button onClick={handleSubmit} className={!saved && "no-saved"}>Salvar</button>
     </div>
   );
 }
