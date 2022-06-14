@@ -26,8 +26,10 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Configure seu lembrete</h1>
-      <p>Me lembre de beber água a cada <input type="number" onChange={handleChange} value={time} /> minuto(s).</p>
+      <div class="item">
+        <p>Timer (mins)</p>
+        <input type="number" onChange={handleChange} value={time} />
+      </div>
       <button onClick={handleSubmit}>Salvar</button>
     </div>
   );
