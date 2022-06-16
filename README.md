@@ -12,3 +12,9 @@
 <h3>Sobre o futuro do projeto</h3>
 <p>A ideia deste projeto é evoluir para um produto voltado a ajudar as pessoas a cuidarem da própria saúde, facilitando a implementação de hábitos simples que podem ser aplicados no cotidiano!</p>
 <p>Sinta-se livre para abrir uma issue e contribuir com sugestões de melhoria! Caso deseje contribuir codando, sinta-se a vontade para seguir os passos de instalação do projeto e enivar seu pull request.</p>
+
+### Idealizador
+
+| [Nicolas](https://github.com/nicochess)               |
+| ------------------------------------------------------|
+| ![Nicolas](https://github.com/nicochess.png?size=100) |
