@@ -1,17 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 import "./App.css";
 import { createAlarm, setAlarmTimer } from "./utils";
 
-/* global chrome */
+const App = () => {
+  const [time, setTime] = useState<number>(0);
+  const [saved, setSaved] = useState<boolean>(true)
 
-function App() {
-  const [time, setTime] = useState();
-  const [saved, setSaved] = useState(true)
- 
-  const handleChange = useCallback(({ target }) => {
+  const handleChange = useCallback(({ target }: ChangeEvent) => {
+    let time = Number((target as HTMLInputElement).value) 
     setSaved(false)
-    setTime(target.value);
-  },[setTime]);
+    setTime(time)
+  }, [setTime]);
 
   const handleSubmit = () => {
     setSaved(true)
@@ -23,7 +22,7 @@ function App() {
 
   useEffect(() => {
     chrome.storage.local.get(["timer"], ({ timer }) => {
-      setTime(timer); 
+      setTime(timer);
     });
   }, []);
 
@@ -33,7 +32,7 @@ function App() {
         <p>Timer (mins)</p>
         <input type="number" onChange={handleChange} value={time} />
       </div>
-      <button onClick={handleSubmit} className={!saved && "no-saved"}>Salvar</button>
+      <button onClick={handleSubmit} className={`${!saved && "no-saved"}`}>Salvar</button>
     </div>
   );
 }

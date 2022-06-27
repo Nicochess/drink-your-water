@@ -1,6 +1,4 @@
-/* global chrome */
-
-export const setAlarmTimer = (time) => {
+export const setAlarmTimer = (time: number | null) => {
   chrome.storage.local.set({ timer: time });
 };
 
