@@ -1,5 +1,3 @@
-/* global chrome */
-
 chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.set({ timer: 120 });
 
